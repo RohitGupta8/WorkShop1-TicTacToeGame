@@ -8,8 +8,8 @@ public class TicTacToeMain {
      */
     static char[] gameBoard = new char[10];
 
-    public static char Computerletter;
-    public static char Playerletter;
+    public static char ComputerLetter;
+    public static char PlayerLetter;
     static Scanner scanner = new Scanner(System.in);
 
     /**
@@ -30,21 +30,39 @@ public class TicTacToeMain {
             System.out.print("\nChoose your Letter\nPress 1 -> 'X'\nPress 2 -> 'O'\nEnter your Choice -> ");
             int choice = scanner.nextInt();
             if (choice == 1) {
-                Playerletter = 'X';
-                Computerletter = 'O';
-                System.out.println("\nPlayer letter -> " + Playerletter);
-                System.out.println("Computer letter -> " + Computerletter);
+                PlayerLetter = 'X';
+                ComputerLetter = 'O';
+                System.out.println("\nPlayer letter -> " + PlayerLetter);
+                System.out.println("Computer letter -> " + ComputerLetter);
                 flag = 1;
             } else if (choice == 2) {
-                Playerletter = 'O';
-                Computerletter = 'X';
-                System.out.println("\nPlayer letter -> " + Playerletter);
-                System.out.println("Computer letter -> " + Computerletter);
+                PlayerLetter = 'O';
+                ComputerLetter = 'X';
+                System.out.println("\nPlayer letter -> " + PlayerLetter);
+                System.out.println("Computer letter -> " + ComputerLetter);
                 flag = 2;
             } else {
                 System.out.println("\n>>>>>>> plz enter 1 or 2 <<<<<<<<<");
             }
         }
+    }
+
+    /**
+     * method for display Board
+     */
+    public void showBoard() {
+        System.out.println("  " + gameBoard[1] + " | "
+                + gameBoard[2] + " | " + gameBoard[3]
+                + "  ");
+        System.out.println("----|---|----");
+        System.out.println("  " + gameBoard[4] + " | "
+                + gameBoard[5] + " | " + gameBoard[6]
+                + "  ");
+        System.out.println("----|---|----");
+        System.out.println("  " + gameBoard[7] + " | "
+                + gameBoard[8] + " | " + gameBoard[9]
+                + "  ");
+
     }
 
     /**
@@ -58,6 +76,8 @@ public class TicTacToeMain {
         System.out.println("#####################################\n      Welcome 2 TicTacToe Game\n#####################################\n");
 
         ticTacToeMain.createGameBoard();
+        ticTacToeMain.showBoard();
         ticTacToeMain.selectLetter();
+
     }
 }
