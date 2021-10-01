@@ -11,6 +11,7 @@ public class TicTacToeMain {
     public static char ComputerLetter;
     public static char PlayerLetter;
     static Scanner scanner = new Scanner(System.in);
+    static Random random = new Random();
 
     /**
      * method for creating empty GameBoard
@@ -66,7 +67,28 @@ public class TicTacToeMain {
     }
 
     /**
-     *
+     * method for user move on desired location
+     */
+    public void playerPlaying() {
+        System.out.println("\n>>>>>>>> Player Turn <<<<<<<<");
+        showBoard();
+        System.out.print("Enter your position [1-9] -> ");
+        int playerPosition = scanner.nextInt();
+        gameBoard[playerPosition] = PlayerLetter;
+        showBoard();
+    }
+
+    /**
+     * method for user move on desired location
+     */
+    public void computerPlaying() {
+        System.out.println("\n>>>>>>>> Computer Turn <<<<<<<<\n");
+        int computerPosition = random.nextInt(9) + 1;
+        gameBoard[computerPosition] = ComputerLetter;
+        showBoard();
+    }
+
+    /**
      * @param args
      */
     public static void main(String[] args) {
@@ -78,6 +100,8 @@ public class TicTacToeMain {
         ticTacToeMain.createGameBoard();
         ticTacToeMain.showBoard();
         ticTacToeMain.selectLetter();
+        ticTacToeMain.playerPlaying();
+        ticTacToeMain.computerPlaying();
 
     }
 }
