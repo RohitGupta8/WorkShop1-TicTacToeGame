@@ -72,10 +72,18 @@ public class TicTacToeMain {
     public void playerPlaying() {
         System.out.println("\n>>>>>>>> Player Turn <<<<<<<<");
         showBoard();
-        System.out.print("Enter your position [1-9] -> ");
-        int playerPosition = scanner.nextInt();
-        gameBoard[playerPosition] = PlayerLetter;
-        showBoard();
+        int kite = 0;
+        while (kite == 0) {
+            System.out.print("Enter your position [1-9] -> ");
+            int playerPosition = scanner.nextInt();
+            if (isEmptyCell(playerPosition)) {
+                gameBoard[playerPosition] = PlayerLetter;
+                showBoard();
+                kite = 1;
+            } else {
+                System.out.println("\nSpace is not Empty.....plz try in another...\n");
+            }
+        }
     }
 
     /**
@@ -83,9 +91,26 @@ public class TicTacToeMain {
      */
     public void computerPlaying() {
         System.out.println("\n>>>>>>>> Computer Turn <<<<<<<<\n");
-        int computerPosition = random.nextInt(9) + 1;
-        gameBoard[computerPosition] = ComputerLetter;
-        showBoard();
+        int cat = 0;
+        while (cat == 0) {
+            int computerPosition = random.nextInt(9) + 1;
+            if (isEmptyCell(computerPosition)) {
+                gameBoard[computerPosition] = ComputerLetter;
+                showBoard();
+                cat = 1;
+            } else {
+                System.out.println("\nSpace is not Empty.....plz try in another...\n");
+            }
+        }
+    }
+
+    /**
+     * Method for check free space
+     * @param cellIndex
+     * @return
+     */
+    public static boolean isEmptyCell(int cellIndex) {
+        return gameBoard[cellIndex] == ' ';
     }
 
     /**
