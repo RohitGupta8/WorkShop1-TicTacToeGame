@@ -84,6 +84,8 @@ public class TicTacToeMain {
                 System.out.println("\nSpace is not Empty.....plz try in another...\n");
             }
         }
+        checkWinner(gameBoard, PlayerLetter);
+        checkGameBoardFull();
         switchPlayer(1);
     }
 
@@ -103,6 +105,8 @@ public class TicTacToeMain {
                 System.out.println("\nSpace is not Empty.....plz try in another...\n");
             }
         }
+        checkWinner(gameBoard, ComputerLetter);
+        checkGameBoardFull();
         switchPlayer(0);
     }
 
@@ -140,6 +144,68 @@ public class TicTacToeMain {
             System.out.println("Computer Has Won The Toss ....and Play first");
             switchPlayer(1);
         }
+    }
+
+    /**
+     * method for who won the match
+     */
+    public void checkWinner(char[] gameBoard, char Letters) {
+        for (int a = 1; a < gameBoard.length - 1; a++) {
+            if (gameBoard[1] == gameBoard[2] && gameBoard[2] == gameBoard[3] && gameBoard[3] == Letters) {
+                System.out.println("\n>>>>> [ " + Letters + " ] <<<<< is Won the Match.....\n");
+                switchPlayer(3);
+                break;
+            } else if (gameBoard[4] == gameBoard[5] && gameBoard[5] == gameBoard[6] && gameBoard[6] == Letters) {
+                System.out.println("\n>>>>> [ " + Letters + " ] <<<<< is Won the Match.....\n");
+                switchPlayer(3);
+                break;
+            } else if (gameBoard[7] == gameBoard[8] && gameBoard[8] == gameBoard[9] && gameBoard[9] == Letters) {
+                System.out.println("\n>>>>> [ " + Letters + " ] <<<<< is Won the Match.....\n");
+                switchPlayer(3);
+                break;
+            } else if (gameBoard[1] == gameBoard[4] && gameBoard[4] == gameBoard[7] && gameBoard[7] == Letters) {
+                System.out.println("\n>>>>> [ " + Letters + " ] <<<<< is Won the Match.....\n");
+                switchPlayer(3);
+                break;
+            } else if (gameBoard[2] == gameBoard[5] && gameBoard[5] == gameBoard[8] && gameBoard[8] == Letters) {
+                System.out.println("\n>>>>> [ " + Letters + " ] <<<<< is Won the Match.....\n");
+                switchPlayer(3);
+                break;
+            } else if (gameBoard[3] == gameBoard[6] && gameBoard[6] == gameBoard[9] && gameBoard[9] == Letters) {
+                System.out.println("\n>>>>> [ " + Letters + " ] <<<<< is Won the Match.....\n");
+                switchPlayer(3);
+                break;
+            } else if (gameBoard[1] == gameBoard[5] && gameBoard[5] == gameBoard[9] && gameBoard[9] == Letters) {
+                System.out.println("\n>>>>> [ " + Letters + " ] <<<<< is Won the Match.....\n");
+                switchPlayer(3);
+                break;
+            } else if (gameBoard[3] == gameBoard[5] && gameBoard[5] == gameBoard[7] && gameBoard[7] == Letters) {
+                System.out.println("\n>>>>> [ " + Letters + " ] <<<<< is Won the Match.....\n");
+                switchPlayer(3);
+                break;
+            }
+        }
+
+//        for (int count = 1; count <= gameBoard.length;count++){
+//        if (gameBoard[count] == gameBoard.length){
+//            System.out.println("Match Draw.......");
+//            switchPlayer(3);
+//        }}
+
+    }
+
+    /**
+     * method of check game board is full
+     */
+    public boolean checkGameBoardFull() {
+        for (int i = 1; i < gameBoard.length; i++) {
+            if (gameBoard[i] == ' ') {
+                return true;
+            }
+        }
+        System.out.println("\n>>>>>>> { MATCH DRAW } <<<<<<<<");
+        switchPlayer(3);
+        return false;
     }
 
     /**
