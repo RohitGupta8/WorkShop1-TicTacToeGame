@@ -187,13 +187,6 @@ public class TicTacToeMain {
                 break;
             }
         }
-
-//        for (int count = 1; count <= gameBoard.length;count++){
-//        if (gameBoard[count] == gameBoard.length){
-//            System.out.println("Match Draw.......");
-//            switchPlayer(3);
-//        }}
-
     }
 
     /**
