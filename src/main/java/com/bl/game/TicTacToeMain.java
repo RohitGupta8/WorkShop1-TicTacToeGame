@@ -127,7 +127,9 @@ public class TicTacToeMain {
             computerPlaying();
         } else {
             System.out.println("\nGame finished.......");
-            System.exit(0);
+            System.out.print("\nIf You Want 2 Play Another Game\nPress [1] for new game\nPress [2] for Exit\nEnter your Choice => ");
+            int choice =scanner.nextInt();
+            newGame(choice);
         }
     }
 
@@ -209,6 +211,23 @@ public class TicTacToeMain {
     }
 
     /**
+     *  play new game or exit
+     * @param choice
+     */
+    public void newGame(int choice){
+        if (choice == 1){
+            createGameBoard();
+            showBoard();
+            selectLetter();
+            tossToPlay();
+        }else{
+            System.out.println("\n Thanks for Playing...........\n\n\n    >>>>>>> Game Over <<<<<<<<");
+            System.exit(0);
+        }
+
+    }
+
+    /**
      * This is main method where all method are calling
      */
     public static void main(String[] args) {
@@ -221,7 +240,5 @@ public class TicTacToeMain {
         ticTacToeMain.showBoard();
         ticTacToeMain.selectLetter();
         ticTacToeMain.tossToPlay();
-
-
     }
 }
